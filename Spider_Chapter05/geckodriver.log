@@ -1,0 +1,14 @@
+1525954070241	geckodriver	INFO	geckodriver 0.19.1
+1525954070252	geckodriver	INFO	Listening on 127.0.0.1:54175
+1525954071420	mozrunner::runner	INFO	Running command: "/home/linxs/_SoftWare/Browser/firefox/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.yHjtWc3V2Vwk"
+1525954076382	Marionette	INFO	Enabled via --marionette
+1525954081462	Marionette	INFO	Listening on port 41167
+1525954081564	Marionette	WARN	TLS certificate errors will be ignored for this session
+ATTENTION: default value of option force_s3tc_enable overridden by environment.
+1525954226843	geckodriver	INFO	geckodriver 0.19.1
+1525954226847	geckodriver	INFO	Listening on 127.0.0.1:41963
+1525954227999	mozrunner::runner	INFO	Running command: "/home/linxs/_SoftWare/Browser/firefox/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.DFO8B6cGGlJ3"
+1525954229736	Marionette	INFO	Enabled via --marionette
+1525954232036	Marionette	INFO	Listening on port 41832
+1525954232114	Marionette	WARN	TLS certificate errors will be ignored for this session
+ATTENTION: default value of option force_s3tc_enable overridden by environment.
