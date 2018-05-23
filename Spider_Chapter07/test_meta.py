@@ -26,8 +26,6 @@ class B(A):
 def main():
     b = B()
 
-    pass
-
 
 
 if __name__ == '__main__':
