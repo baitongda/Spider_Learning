@@ -9,5 +9,9 @@ PASSWD=None
 
 REDIS_KEY="proxies"             # A sorted set datastructure to save proxies
 
-
 PROXY_POOL_THRESHOLD = 10000
+
+
+TEST_URL = ""
+VAILD_STATUS_CODE = [200]
+BATCH_SIZE=100
