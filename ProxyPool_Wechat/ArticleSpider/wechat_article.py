@@ -54,12 +54,7 @@ class Spider(object):
     queue = RedisQueue()
     mysql = MySQL()
 
-    def start(self):
-        url = self.base_url + '?' + urlencode({'type':2,'query':self.keyword})
-        print(url)
-        weixin_req = WeixinReq(url,self.parse_index,need_proxy=True,headers=self.header)
-        if  isinstance(weixin_req,requests.Request):
-            self.queue.add(weixin_req)
+
 
     def parse_index(self,response):
         doc = PQ(response)
@@ -110,6 +105,7 @@ class Spider(object):
                 return proxy
             return None
         except Exception as e:
+            _ = e
             return None
 
 
