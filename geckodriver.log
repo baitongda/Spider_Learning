@@ -1,9 +1,0 @@
-1530789090698	geckodriver	INFO	geckodriver 0.21.0
-1530789090704	geckodriver	INFO	Listening on 127.0.0.1:57441
-1530789092597	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.VIQ1GvsL7Ke0"
-1530789100409	Marionette	INFO	Listening on port 39871
-1530789100421	Marionette	WARN	TLS certificate errors will be ignored for this session
-
-(firefox:32471): GLib-GIO-WARNING **: 19:11:40.564: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
-JavaScript error: https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/plugins/every_cookie_4644b13.js, line 4: ReferenceError: c is not defined
-*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
