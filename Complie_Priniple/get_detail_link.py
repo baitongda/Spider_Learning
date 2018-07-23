@@ -42,7 +42,9 @@ class GetDetailLink:
         self.session.headers.update(headers)
         self.urls = []
         self.video_links = []
-        self.driver = webdriver.Chrome()
+        self.option = webdriver.ChromeOptions()
+        self.option.add_argument("--headless")
+        self.driver = webdriver.Chrome(chrome_options=self.option)
         self.timout = 20
         self.wait = WebDriverWait(self.driver,self.timout)
         self.path = 'video_source_link.txt'
@@ -97,9 +99,9 @@ class GetDetailLink:
 
 if __name__ == '__main__':
     obj = GetDetailLink()
-    # obj.get_links()
-    # obj.extracted_video_urls()
-    # path = 'video_source_link.txt'
-    # obj.dumps_url_file(path)
-    print(obj.load_links_file())
+    obj.get_links()
+    obj.extracted_video_urls()
+    path = 'video_source_link.txt'
+    obj.dumps_url_file(path)
+    # print(obj.load_links_file())
     obj.driver.quit()
