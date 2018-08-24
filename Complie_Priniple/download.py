@@ -4,6 +4,10 @@ import re
 import threading
 from urllib.parse import urlparse
 from get_detail_link import GetDetailLink
+import aiohttp
+import time
+import asyncio
+
 
 class Download:
     def __init__(self):
@@ -27,31 +31,42 @@ class Download:
         self.file_list = filenames
         return filenames
 
-    def download(self):
-        while True:
-            if len(self.queue) == 0 or len(self.file_list) == 0:
-                break
-            url = self.queue.pop()
-            filename = self.file_list.pop()
-            response = self.session.get(url)
-            filename = self.store_dir.format(filename)
-            with open(filename,'wb') as video:
-                    video.write(response.content)
-            print("Download {} Successfully".format(filename))
+
+
+async def fetch(session,url):
+    async with session.get(url) as response:
+        return await response.read()
+
+
+async def write(name,html):
+     with open(name,'wb') as f:
+         f.write(html)
+     print("write Success")
+
+async def download(name,url):
+    # print(f"download:{url}")
+    async with aiohttp.ClientSession() as session:
+        html = await fetch(session,url)
+        name = r"/home/linxs/Videos/Complie/{}.mp4".format(name)
+        await write(name,html)
+        await session.close()
+
 
 
 if __name__ == '__main__':
+    start = time.time()
     d = Download()
     d.get_requests_queue()
     d.get_filenames()
-    threads = []
-    for i in range(4):
-        thread = threading.Thread(target=d.download,args={},)
-        threads.append(thread)
+    loop = asyncio.get_event_loop()
+    for i in range(8):
+        tasks = [download(d.file_list[k],d.queue[k]) for k in range(i*10,(i+1)*10)]
+        tasks = [asyncio.ensure_future(task) for task in tasks]
+        loop.run_until_complete(asyncio.wait(tasks))
+    # tasks = [download(d.file_list[i],d.queue[i]) for i in range(10)]
+    # tasks = [asyncio.ensure_future(task) for task in tasks]
+    # loop.run_until_complete(asyncio.wait(tasks))
+    end = time.time()
+    print(f"Cos : {end-start}")
     
-    for p in threads:
-        p.start()
     
-    for p in threads:
-        p.join()
- 
